@@ -1,0 +1,672 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>F.L.C.S. | UCF Senior Design Group 2</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f4f6f8;
+    }
+
+    /* =========================
+       HEADER / NAVIGATION
+       ========================= */
+
+    header {
+      background: linear-gradient(135deg, #0b0f5c, #1a1abc);
+      color: white;
+      padding: 0;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 5rem 1.5rem 5.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      color: #d9ddff;
+    }
+
+    .hero .description {
+      max-width: 750px;
+      margin: auto;
+      color: #e8eaff;
+      font-size: 1.05rem;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background: white;
+      color: #1717a8;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      max-width: 1100px;
+      margin: -2rem auto 3rem;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      font-size: 2rem;
+      color: #11145f;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading p {
+      color: #6b7280;
+    }
+
+    /* =========================
+       PROJECT HIGHLIGHTS
+       ========================= */
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .highlight-card {
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: #fafbff;
+    }
+
+    .highlight-card h3 {
+      color: #1717a8;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .highlight-card p {
+      color: #5b6472;
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       DOCUMENTS
+       ========================= */
+
+    .documents {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .document-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 9px;
+      text-decoration: none;
+      color: #1f2937;
+      background: white;
+      transition: all 0.2s ease;
+    }
+
+    .document-card:hover {
+      border-color: #1a1abc;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(26,26,188,0.1);
+    }
+
+    .document-icon {
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: #eeeeff;
+      color: #1717a8;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .document-info strong {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .document-info span {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* =========================
+       VIDEOS
+       ========================= */
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .video-card {
+      background: #fafafa;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .video-title {
+      padding: 1rem 1.2rem;
+      font-weight: bold;
+      color: #11145f;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      left: 0;
+      top: 0;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      background: #11142b;
+      color: #cbd0e0;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        gap: 0.8rem;
+      }
+
+      .highlights,
+      .video-grid,
+      .documents {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+
+      .hero {
+        padding: 4rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 550px) {
+      nav {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      .nav-links {
+        font-size: 0.85rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+       ========================= -->
+
+  <header>
+
+```
+<nav>
+  <div class="nav-logo">F.L.C.S. | UCF</div>
+
+  <ul class="nav-links">
+    <li><a href="#about">Project</a></li>
+    <li><a href="#documents">Documents</a></li>
+    <li><a href="#videos">Videos</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>F.L.C.S.</h1>
+
+  <p class="subtitle">
+    Fabric Laser Cutter System
+  </p>
+
+  <p class="description">
+    University of Central Florida Senior Design Project — Group 2.
+    An automated laser-based system designed to accurately cut fabric
+    using computer vision, motion control, and an integrated touchscreen
+    interface.
+  </p>
+
+  <a href="#videos" class="hero-button">
+    View Project Videos
+  </a>
+</div>
+```
+
+  </header>
+
+  <main>
+
+```
+<!-- =========================
+     PROJECT OVERVIEW
+     ========================= -->
+
+<section id="about">
+
+  <div class="section-heading">
+    <h2>Project Overview</h2>
+
+    <p>
+      F.L.C.S. combines hardware, software, computer vision, and motion
+      control into a single fabric-cutting system.
+    </p>
+  </div>
+
+  <div class="highlights">
+
+    <div class="highlight-card">
+      <h3>Computer Vision</h3>
+      <p>
+        A camera-based system captures fabric markings and processes
+        them into cutting paths.
+      </p>
+    </div>
+
+    <div class="highlight-card">
+      <h3>Laser Cutting</h3>
+      <p>
+        Generated cutting paths are converted into G-code for controlled
+        laser movement across the fabric.
+      </p>
+    </div>
+
+    <div class="highlight-card">
+      <h3>Touchscreen HMI</h3>
+      <p>
+        An integrated touchscreen interface allows users to configure,
+        monitor, and control the cutting process.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     DOCUMENTS
+     ========================= -->
+
+<section id="documents">
+
+  <div class="section-heading">
+    <h2>Project Documents</h2>
+
+    <p>
+      Reports, presentations, and technical documentation from the
+      F.L.C.S. development process.
+    </p>
+  </div>
+
+  <div class="documents">
+
+    <a class="document-card"
+       href="assets/pdf/Divide_and_Conquer.pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>Divide &amp; Conquer Document</strong>
+        <span>Project documentation</span>
+      </div>
+    </a>
+
+    <a class="document-card"
+       href="assets/pdf/Divide_and_Conquer V2.pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>Divide &amp; Conquer Document V2</strong>
+        <span>Updated project documentation</span>
+      </div>
+    </a>
+
+    <a class="document-card"
+       href="assets/pdf/Midterm Report.pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>Midterm Milestone Report</strong>
+        <span>Project milestone report</span>
+      </div>
+    </a>
+
+    <a class="document-card"
+       href="assets/pdf/Final Report.pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>SD1 Final Report</strong>
+        <span>Senior Design 1 final report</span>
+      </div>
+    </a>
+
+    <a class="document-card"
+       href="assets/pdf/8 Page Conference Paper.pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>8 Page Conference Paper</strong>
+        <span>Technical conference paper</span>
+      </div>
+    </a>
+
+    <a class="document-card"
+       href="assets/pdf/CDR Presentation.pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>CDR Presentation</strong>
+        <span>Critical Design Review</span>
+      </div>
+    </a>
+
+    <a class="document-card"
+       href="assets/pdf/Group 2 Final Presentation.pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>Final Presentation</strong>
+        <span>Group 2 final presentation</span>
+      </div>
+    </a>
+
+    <a class="document-card"
+       href="assets/pdf/SD2 Final Report (2).pdf"
+       target="_blank"
+       rel="noopener">
+      <div class="document-icon">PDF</div>
+      <div class="document-info">
+        <strong>SD2 Final Report</strong>
+        <span>Senior Design 2 final report</span>
+      </div>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     VIDEOS
+     ========================= -->
+
+<section id="videos">
+
+  <div class="section-heading">
+    <h2>Project Videos</h2>
+
+    <p>
+      Demonstrations and presentations documenting the development
+      of the F.L.C.S. system.
+    </p>
+  </div>
+
+  <div class="video-grid">
+
+    <!-- Mini Demo -->
+
+    <div class="video-card">
+      <div class="video-title">
+        Mini Demo
+      </div>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/PJR1E0p2s3s"
+          title="F.L.C.S. Demo Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+
+    <!-- CDR -->
+
+    <div class="video-card">
+      <div class="video-title">
+        CDR Presentation
+      </div>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/t594Z3SPOXM"
+          title="CDR Presentation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+
+    <!-- Midterm -->
+
+    <div class="video-card">
+      <div class="video-title">
+        Midterm Demo
+      </div>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/-7wiuctiP5c"
+          title="Midterm Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+
+    <!-- Final Presentation -->
+
+    <div class="video-card">
+      <div class="video-title">
+        Final Presentation
+      </div>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/gDzFmW9gp1k?si=0nmb0lxWpbK66IQc"
+          title="Final Presentation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+
+    <!-- Final Demo -->
+
+    <div class="video-card">
+      <div class="video-title">
+        Final Demo
+      </div>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/I9EJ72qY-_Y"
+          title="Final Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+```
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
+  <footer>
+
+```
+<p>
+  <strong>F.L.C.S. — Fabric Laser Cutter System</strong>
+</p>
+
+<p>
+  UCF Senior Design • Group 2
+</p>
+
+<p>
+  © <span id="y"></span> University of Central Florida
+</p>
+```
+
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
